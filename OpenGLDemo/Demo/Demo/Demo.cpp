@@ -61,7 +61,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	glutInitWindowPosition(600, 100);        
 
 	// Specify a window creation event 
-	glutCreateWindow("A Yellow Quad."); 
+	glutCreateWindow("OFF Model Loader"); 
 	glutMouseFunc(mouse_handler);
 	glutMotionFunc(mouse_action_handler);
 
@@ -180,7 +180,7 @@ void display()
 
 	glEnable(GL_LIGHTING);     //开启光照系统
 	glPushMatrix();
-	glRotatef(3.f * rotationACC, 0, 1, 0);
+	glRotatef(.5f * rotationACC, 0, 1, 0);
 	if (modelTypeSoft)
 	{
 		smodel.draw();
