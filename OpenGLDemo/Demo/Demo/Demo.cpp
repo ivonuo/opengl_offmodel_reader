@@ -42,7 +42,6 @@ void draw_cube(vec3 mid, float width, vec3 col);
 void draw_quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4, vec3 normal, vec3 col);
 void draw_quad(Quads q);
 void draw_tri(vec3 p1, vec3 p2, vec3 p3);
-void draw_polygon();
 void display();
 void myinit();
 void mouse_handler(int button, int state, int x, int y);
@@ -126,28 +125,14 @@ void draw_origin()
 	glEnd();
 }
 
-void draw_polygon()
-{
-
-	glBegin(GL_QUADS);
-
-	glNormal3f(0.0F, 0.0F, 1.0F);
-	glVertex3f(3.0f, 1.0f, 0.0f);
-	glVertex3f(7.0f, 1.0f, 0.0f);
-	glVertex3f(7.0f, 3.0f, 0.0f);
-	glVertex3f(3.0f, 3.0f, 0.0f);
-
-	glEnd();
-}
-
-int rotationACC = 0;
-
 void refresh_timer(int t)
 {
 	glutPostRedisplay(); 
 	glutTimerFunc(16, refresh_timer, 1);
 }
 
+int rotationACC = 0;
+bool modelTypeSoft = false;
 void display()
 {
 	glDepthFunc(GL_LESS);
@@ -164,7 +149,7 @@ void display()
 
 
 	GLfloat light_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
-	GLfloat light_diffuse[] = { .1, .1, .5, 1.0 };
+	GLfloat light_diffuse[] = { .5, .1, .1, 1.0 };
 	GLfloat light_specular[] = { .2, .2, .2, 1.0 };
 	GLfloat light_position[] = { -200, -200, -200, 0.0 };
 	GLfloat light_position2[] = { 200, -200, 200, 0.0};
@@ -180,58 +165,32 @@ void display()
 	// draw light pos
 	draw_cube({ -light_position[0],-light_position[1],-light_position[2] }, 20.f, { 0.4f, 0.7f, 0.0f });
 	draw_cube({ -light_position2[0],-light_position2[1],-light_position2[2] }, 20.f, { 0.4f, 0.7f, 0.0f });
-	//cam.pos += vec3(0.1f, 0.1f, 0.f);
-	//cam.pos.make_unit_vector();
-	//cout << cam.pos << endl;
-
-	//cout << cam.front_dir << " " << cam.pos << endl;
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	vec3 aimPos = cam.pos + cam.front_dir;
 	gluLookAt(cam.pos.x(), cam.pos.y(), cam.pos.z(), aimPos.x(), aimPos.y(), aimPos.z(), cam.up_dir.x(), cam.up_dir.y(), cam.up_dir.z());
-	//glTranslatef(cam.pos.x(), cam.pos.y(), cam.pos.z());
 	draw_origin();
-
-
-	// draw cubes
-	//draw_cube({ 0,0,0 }, 10.f, { 0.4f, 0.7f, 0.0f });
 
 	glPushMatrix();
 	glTranslated(-70, 80, 0);
 	//glutWireCube(30);
 	glPopMatrix();
 
-	//draw_tri({ 0,0,0 }, { 14,12,16 }, { 17, -14, 1 });
 
 	glEnable(GL_LIGHTING);     //开启光照系统
 	glPushMatrix();
-	//glRotatef(3.f * rotationACC, 0, 1, 0);
-	model.draw();
+	glRotatef(3.f * rotationACC, 0, 1, 0);
+	if (modelTypeSoft)
+	{
+		smodel.draw();
+	}
+	else
+	{
+		model.draw();
+	}
 	glPopMatrix();
 	glDisable(GL_LIGHTING);     //开启光照系统
-
-	// draw models
-
-	//glColor3f(0.0, 0.0, 1.0);
-	//draw_polygon();
-	//glColor3f(1.0, 1.0, 0.0);
-	//glPushMatrix();
-
-	////
-	//glTranslatef(3.0, 1.0, 0.0);
-	//glScalef(1.0, 1.5, 1.0);
-	//gluLookAt(-1, 0, 0, 0, 0, 0, 0, 1, 0);
-	//glTranslatef(-3.0, -1.0, 0.0);
-	//draw_polygon();
-
-	//while (!quadsQueue.empty())
-	//{
-	//	Quads q = quadsQueue.top();
-	//	quadsQueue.pop();
-	//	draw_quad(q);
-	//}
-
 
 
 	glFlush();                    //Force the processor to draw immediately
@@ -242,19 +201,14 @@ void myinit()
 	glClearColor(0.0, 0.0, 0.0, 0.0);  //Set the clear color to black
 
 	model.load_OFFformat_model("Bunny_534v.off");
-	smodel.load_OFFformat_model("Bunny_534v.off");
-	//smodel.load_OFFformat_model("Bunny.off");
+	//smodel.load_OFFformat_model("Bunny_534v.off");
+	smodel.load_OFFformat_model("Bunny.off");
 	//model.load_OFFformat_model("Bunny.off");
 
-	// Specify the domain of the viewing window
-	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(90.0, WIDTH / HEIGHT, 0.01, 700.0);
 	cam.pos = vec3(1, 1, 1) * 100;
-
-	// The para are: (left, right, bottom, top)
-	//gluOrtho2D(-8.0, 8.0, -8.0, 8.0);
 }
 
 int cnt = 0;
@@ -279,13 +233,6 @@ void draw_cube(vec3 mid, float width, vec3 col = { 0.0f, 1.0f, 0.0f })
 	vec3 p7 = { mid.x() - width / 2, mid.y() - width / 2, mid.z() - width / 2 };
 	vec3 p8 = { mid.x() - width / 2, mid.y() - width / 2, mid.z() + width / 2 };
 
-	//draw_quad(p1, p2, p4, p3, { 0,1,0 }, { col.x * 0.9f, col.y, col.z });
-	//draw_quad(p1, p2, p5, p6, { 1,0,0 }, { col.x, col.y * 0.9f, col.z });
-	//draw_quad(p3, p4, p8, p7, { -1,0,0 }, { col.x, col.y, col.z * 0.9f });
-	//draw_quad(p1, p4, p8, p5, { 0,0,1 }, { col.x * 0.8f, col.y, col.z });
-	//draw_quad(p2, p3, p7, p6, { 0,0,-1 }, { col.x, col.y * 0.8f, col.z });
-	//draw_quad(p5, p6, p8, p7, { 0,-1,0 }, { col.x, col.y, col.z * 0.8f });
-
 	draw_quad(p1, p2, p3, p4, { 0,1,0 }, { 0.2, 1, 0 });
 	draw_quad(p1, p2, p6, p5, { 1,0,0 }, { 1, 0.2, 0 });
 	draw_quad(p3, p4, p8, p7, { -1,0,0 }, { 1, 0, 0.2 });
@@ -304,25 +251,12 @@ void draw_quad(Quads q)
 	draw_quad(q.p1, q.p2, q.p3, q.p4, q.normal, q.col);
 }
 
+// draw without lightmodel
 void draw_quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4, vec3 normal, vec3 col)
 {
-
 	col *= 0.5f;
 
-	//glEnable(GL_COLOR_MATERIAL);
-	//glColorMaterial(GL_FRONT, GL_DIFFUSE);
 	glColor3f(col.x(), col.y(), col.z());
-
-	//glColorMaterial(GL_FRONT, GL_SPECULAR);
-	//glColor3f(1, 1, 1);
-	//glDisable(GL_COLOR_MATERIAL);
-
-
-	//GLfloat mat_specular[] = { col.x(), col.y(), col.z(), 1.0 };
-	//GLfloat mat_shininess[] = { 1, 1, 1, 1.0 };
-
-	//glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	//glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 	glBegin(GL_QUADS);
 
@@ -367,11 +301,16 @@ void mouse_action_handler(int x, int y)
 	//cout << "Mouse Action: " << x << " " << y << endl;
 }
 
+
 void keyboard_action_handler(unsigned char key, int x, int y)
 {
 	cam.ProcessKeyboard(key);
 
 	display();
+	if (key == '0')
+	{
+		modelTypeSoft = !modelTypeSoft;
+	}
 	//cout << "Key pressed: " << key << " " << endl;
 }
 

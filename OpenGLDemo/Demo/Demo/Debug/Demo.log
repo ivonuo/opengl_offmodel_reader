@@ -1,37 +1,37 @@
 ﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
   Demo.cpp
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\vec3.h(114,11): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\vec3.h(126,16): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Model.h(68,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Model.h(75,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\SoftModel.h(93,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\SoftModel.h(103,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\SoftModel.h(137,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\SoftModel.h(139,43): warning C4244: “参数”: 从“_Ty”转换到“const float”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\vec3.h(114,11): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\vec3.h(126,16): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Model.h(68,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Model.h(75,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\SoftModel.h(79,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\SoftModel.h(89,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\SoftModel.h(123,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\SoftModel.h(125,43): warning C4244: “参数”: 从“_Ty”转换到“const float”，可能丢失数据
           with
           [
               _Ty=int
           ]
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\SoftModel.h(142,24): warning C4018: “<”: 有符号/无符号不匹配
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(59,28): warning C4244: “参数”: 从“const GLfloat”转换到“int”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(59,21): warning C4244: “参数”: 从“const GLfloat”转换到“int”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(91,23): warning C4305: “参数”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(104,25): warning C4305: “参数”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(116,25): warning C4305: “参数”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(155,30): warning C4305: “参数”: 从“double”到“GLclampf”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(166,49): warning C4305: “初始化”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(167,46): warning C4305: “初始化”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(168,47): warning C4305: “初始化”: 从“double”到“GLfloat”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(266,29): warning C4244: “参数”: 从“float”转换到“GLint”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(266,19): warning C4244: “参数”: 从“float”转换到“GLint”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(289,52): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(290,52): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(291,53): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(292,52): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(293,53): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(294,53): warning C4305: “参数”: 从“double”到“float”截断
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(359,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(360,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(365,32): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-D:\Work\图形学实验\OpenGLDemo\Demo\Demo\Demo.cpp(365,23): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-  Demo.vcxproj -> D:\Work\图形学实验\OpenGLDemo\Demo\Debug\Demo.exe
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\SoftModel.h(128,24): warning C4018: “<”: 有符号/无符号不匹配
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(59,28): warning C4244: “参数”: 从“const GLfloat”转换到“int”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(59,21): warning C4244: “参数”: 从“const GLfloat”转换到“int”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(91,23): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(104,25): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(116,25): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(156,30): warning C4305: “参数”: 从“double”到“GLclampf”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(167,49): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(168,46): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(169,47): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(236,29): warning C4244: “参数”: 从“float”转换到“GLint”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(236,19): warning C4244: “参数”: 从“float”转换到“GLint”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(252,52): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(253,52): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(254,53): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(255,52): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(256,53): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(257,53): warning C4305: “参数”: 从“double”到“float”截断
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(309,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(310,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(315,32): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Demo\Demo.cpp(315,23): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  Demo.vcxproj -> D:\Work\图形学实验\opengl_offmodel_reader\OpenGLDemo\Demo\Debug\Demo.exe

@@ -25,14 +25,6 @@ public:
 	}
 	void draw()
 	{
-		//glEnable(GL_COLOR_MATERIAL);
-		//glColorMaterial(GL_FRONT, GL_DIFFUSE);
-		//glColor3f(col.x(), col.y(), col.z());
-
-		//glColorMaterial(GL_FRONT, GL_SPECULAR);
-		//glColor3f(1, 1, 1);
-		//glDisable(GL_COLOR_MATERIAL);
-
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 
 		glBegin(GL_TRIANGLES);

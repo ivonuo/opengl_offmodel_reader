@@ -21,30 +21,23 @@ public:
 	SoftTriangle(vert verts[3])
 	{
 		memcpy(this->verts, verts, 3 * sizeof(vert));
-		//mat_diffuse[0] = col.x();
-		//mat_diffuse[1] = col.y();
-		//mat_diffuse[2] = col.z();
-		//mat_diffuse[3] = 1;
 	}
 	void draw()
 	{
-
-		//give_mat_col(verts[0].col);
-
-		//glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+		//give_mat_col({1,1,1});
 
 		glBegin(GL_TRIANGLES);
 
 		glNormal3f(verts[0].normal.x(), verts[0].normal.y(), verts[0].normal.z());
-		give_mat_col(verts[0].col);
+		//give_mat_col(verts[0].col);
 		glVertex3f(verts[0].pos.x(), verts[0].pos.y(), verts[0].pos.z());
 
 		glNormal3f(verts[1].normal.x(), verts[1].normal.y(), verts[1].normal.z());
-		give_mat_col(verts[1].col);
+		//give_mat_col(verts[1].col);
 		glVertex3f(verts[1].pos.x(), verts[1].pos.y(), verts[1].pos.z());
 
 		glNormal3f(verts[2].normal.x(), verts[2].normal.y(), verts[2].normal.z());
-		give_mat_col(verts[2].col);
+		//give_mat_col(verts[2].col);
 		glVertex3f(verts[2].pos.x(), verts[2].pos.y(), verts[2].pos.z());
 
 
@@ -53,19 +46,11 @@ public:
 
 	void give_mat_col(vec3 col)
 	{
-		//glEnable(GL_COLOR_MATERIAL);
-		//glColorMaterial(GL_FRONT, GL_DIFFUSE);
-		//mat_diffuse[0] = col.x();
-		//mat_diffuse[1] = col.y();
-		//mat_diffuse[2] = col.z();
-		//mat_diffuse[3] = 1;
-		//glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-
-		//glColor3f(col.x(), col.y(), col.z());
-
-		//glColorMaterial(GL_FRONT, GL_SPECULAR);
-		//glColor3f(1, 1, 1);
-		//glDisable(GL_COLOR_MATERIAL);
+		mat_diffuse[0] = col.x();
+		mat_diffuse[1] = col.y();
+		mat_diffuse[2] = col.z();
+		mat_diffuse[3] = 1;
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 	}
 };
 
@@ -76,6 +61,7 @@ public:
 	vector<int> verts_normal_count;
 	vector<int*> index_list;
 	vector<SoftTriangle> triangle_list;
+	float default_mat_diffuse[4];
 	void load_OFFformat_model(string filename)
 	{
 		ifstream modelfile; modelfile.open(filename);
@@ -150,10 +136,20 @@ public:
 	}
 	void draw()
 	{
+		give_default_mat_col({ 1,1,1 });
 		for (size_t i = 0; i < triangle_list.size(); i++)
 		{
 			triangle_list[i].draw();
 		}
+	}
+
+	void give_default_mat_col(vec3 col)
+	{
+		default_mat_diffuse[0] = col.x();
+		default_mat_diffuse[1] = col.y();
+		default_mat_diffuse[2] = col.z();
+		default_mat_diffuse[3] = 1;
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, default_mat_diffuse);
 	}
 };
 
